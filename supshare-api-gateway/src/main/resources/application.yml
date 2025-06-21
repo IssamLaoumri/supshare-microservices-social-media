@@ -3,10 +3,12 @@ spring:
     web-application-type: reactive
   application:
     name: api-gateway
+
   servlet:
     multipart:
       max-file-size: 100MB
       max-request-size: 100MB
+
   cloud:
     gateway:
       server:
@@ -14,22 +16,12 @@ spring:
           discovery:
             locator:
               enabled: true
-          globalcors:
-            cors-configurations:
-              '[/**]':
-                allowedOrigins:
-                  - http://localhost:3000
-                allowedMethods:
-                  - "*"
-                allowedHeaders:
-                  - Authorization
-                  - Content-Type
-                  - Accept
 #          routes:
 #            - id: auth-service
 #              uri: lb://auth-service
 #              predicates:
-#                - Path=/api/auth/**
+#                - path=/api/auth/**
+
   data:
     redis:
       host: localhost
